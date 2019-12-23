@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    GameObject options;
+
+    private OptionMenu optionMenu;
+
     private Animator[] _animaciones;
     private int _pos;
     private int _pos_anterior;
@@ -13,6 +18,7 @@ public class MainMenu : MonoBehaviour
         _pos = 0;
         _pos_anterior = 0;
         _animaciones[_pos].Play("Inicial");
+        optionMenu = options.GetComponent<OptionMenu>();
     }
 
     void Comenzar()
@@ -24,10 +30,12 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
+    
     void Cambio()
     {
-
+        options.SetActive(true);
+        optionMenu.Iniciar();
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -35,9 +43,9 @@ public class MainMenu : MonoBehaviour
         if (Input.GetButtonDown("Down"))
         {
             _pos_anterior = _pos++;
-            if (_pos > 2)
+            if (_pos > 3)
             {
-                _pos = 2;
+                _pos = 3;
                 _animaciones[_pos].Play("Inicial");
             }
         }
@@ -57,18 +65,24 @@ public class MainMenu : MonoBehaviour
             _animaciones[_pos].Play("Active");
         }
         
-
-        switch (_pos)
+        if (Input.GetButtonDown("Accept"))
         {
-            case 0:
-                Comenzar();
-                break;
-            case 1:
-                //todo
-                break;
-            case 2:
-                Salir();
-                break;
+            switch (_pos)
+            {
+                case 0:
+                    Comenzar();
+                    break;
+                case 1:
+                    //todo CONTINUAR
+                    break;
+                case 2:
+                    Cambio();
+                    break;
+                case 3:
+                    Salir();
+                    break;
+            }
         }
+        
     }
 }

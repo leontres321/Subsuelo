@@ -10,7 +10,7 @@ public class Key : MonoBehaviour
         
         var pj = GameObject.FindGameObjectWithTag("PJ").GetComponent<PJController>();
         pj.inventario.Agregar("SilverKey");
-        pj.Wait(2);
-        Destroy(gameObject, 2);
+        pj.Wait(1);
+        Destroy(gameObject, 1);
     }
 }
