@@ -3,25 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    bool _activo;
+    [SerializeField]
+    GameObject options;
 
-    Options optiones;
+    private OptionMenu optionMenu;
 
-    int int_position;
-    Vector2 posicion;
-
-    Vector2 PRIMERO = new Vector2(-5, 2.6f);
-    Vector2 SEGUNDO = new Vector2(-5, 0.1f);
-    Vector2 TERCERO = new Vector2(-5, -2.7f);
+    private Animator[] _animaciones;
+    private int _pos;
+    private int _pos_anterior;
 
     void Start()
     {
-        _activo = true;
-        int_position = 0;
-        posicion = new Vector2(190, 234);
+        _animaciones = transform.GetComponentsInChildren<Animator>();
+        _pos = 0;
+        _pos_anterior = 0;
+        _animaciones[_pos].Play("Inicial");
+        optionMenu = options.GetComponent<OptionMenu>();
     }
 
-    void Jugar()
+    void Comenzar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);        
     }
@@ -30,56 +30,57 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
+    
     void Cambio()
     {
-        _activo = false;
-
+        options.SetActive(true);
+        optionMenu.Iniciar();
+        gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if (_activo)
+        if (Input.GetButtonDown("Down"))
         {
-            if (Input.GetButtonDown("Down"))
+            _pos_anterior = _pos++;
+            if (_pos > 3)
             {
-                int_position++;
-                if (int_position > 2) int_position = 2;
+                _pos = 3;
+                _animaciones[_pos].Play("Inicial");
             }
-            else if (Input.GetButtonDown("Up"))
+        }
+        else if (Input.GetButtonDown("Up"))
+        {
+            _pos_anterior = _pos--;
+            if (_pos < 0)
             {
-                int_position--;
-                if (int_position < 0) int_position = 0;
+                _pos = 0;
+                _animaciones[_pos].Play("Inicial");
             }
+        }
 
-            switch (int_position)
+        if (_pos != _pos_anterior)
+        {
+            _animaciones[_pos_anterior].Play("Idle");
+            _animaciones[_pos].Play("Active");
+        }
+        
+        if (Input.GetButtonDown("Accept"))
+        {
+            switch (_pos)
             {
                 case 0:
-                    posicion = PRIMERO;
+                    Comenzar();
                     break;
                 case 1:
-                    posicion = SEGUNDO;
+                    //todo CONTINUAR
                     break;
                 case 2:
-                    posicion = TERCERO;
+                    Cambio();
                     break;
-            }
-            gameObject.transform.position = posicion;
-
-            if (Input.GetButtonDown("Accept"))
-            {
-                switch (int_position)
-                {
-                    case 0:
-                        Jugar();
-                        break;
-                    case 1:
-                        //TODO options
-                        break;
-                    case 2:
-                        Salir();
-                        break;
-                }
+                case 3:
+                    Salir();
+                    break;
             }
         }
         
