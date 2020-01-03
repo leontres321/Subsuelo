@@ -7,8 +7,8 @@ public class Move : StateClass, IState
     int attack;
     bool jump;
 
-    public Move(PJController pjController, Animator anim,  StateMachine sm) : base(pjController, anim, sm){
-    }
+    public Move(PJController pjController, Animator anim, StateMachine sm, string nombre) :
+        base(pjController, anim, sm, nombre) { }
     public void Enter(){
         this.sm.ChangeAnimation("Move");
         this.direction = 0;
@@ -46,11 +46,11 @@ public class Move : StateClass, IState
         {
             case 1:
                 pjController.rb.velocity = new Vector2(SPEED, pjController.rb.velocity.y);
-                this.sm.FlipX("Right");
+                sm.FlipX("Right");
                 break;
             case 2:
                 pjController.rb.velocity = new Vector2(-SPEED, pjController.rb.velocity.y);
-                this.sm.FlipX("Left");
+                sm.FlipX("Left");
                 break;
             default:
                 pjController.rb.velocity = Vector2.zero;

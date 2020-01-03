@@ -3,9 +3,9 @@ public class Attack : StateClass, IState
 {
     private bool endAnimation;
     private float timer;    
-    public Attack(PJController pjController, Animator anim,  StateMachine sm) : base(pjController, anim, sm){
-    }
-    
+    public Attack(PJController pjController, Animator anim, StateMachine sm, string nombre) :
+        base(pjController, anim, sm, nombre){ }
+
     public void Enter(){
         this.sm.ChangeAnimation("Attack");        
     }

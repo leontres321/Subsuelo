@@ -7,4 +7,5 @@ public interface IState
     void Execute(); 
     void FixedExecute();
     void Exit();
+    string GetNombre();
 }

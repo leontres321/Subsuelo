@@ -6,6 +6,7 @@ public class PJController : MonoBehaviour
     public static StateMachine sm;
     public Animator anim;
     public bool end_jump;
+    public bool caer;
     public Inventory inventario;
 
     public Rigidbody2D rb;
@@ -28,6 +29,7 @@ public class PJController : MonoBehaviour
 
     void Start(){
         end_jump = false;
+        caer = false;
         _activo = true;
         _timer = 0f;
         vida = 6;
@@ -59,7 +61,6 @@ public class PJController : MonoBehaviour
     }
 
     void FixedUpdate(){
-
         if (_activo)
         {
             sm.ExecuteStateFixedUpdate();
@@ -71,9 +72,10 @@ public class PJController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 end_jump = false;
             }
-            if (Input.GetKeyDown(KeyCode.R))
+            //TEST
+            if (caer && sm.currentlyRunningState.GetNombre() == "Move")
             {
-                Hurt(1);
+                sm.ChangeState("Fall");
             }
         }
     }
@@ -91,6 +93,7 @@ public class PJController : MonoBehaviour
         }
     }
 
+    //Cambia los corazones del HUD
     void ChangeHearths(int vida)
     {
             switch (vida)
@@ -123,6 +126,7 @@ public class PJController : MonoBehaviour
         
     }
 
+    //deshabilita el pj por time segundos
     public void Wait(int time)
     {
         _activo = false;
@@ -130,6 +134,7 @@ public class PJController : MonoBehaviour
         _tiempo_necesario = time;
     }
 
+    //llama a la funcion hud dependiendo de quien toco
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy_1"))
@@ -143,8 +148,7 @@ public class PJController : MonoBehaviour
 
     }
 
-
-
+    //Shake de HUD
     public IEnumerator Shake(float duration, float magnitude)
     {
         //valores iniciales

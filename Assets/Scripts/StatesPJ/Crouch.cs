@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 public class Crouch : StateClass, IState
 {
-    private bool down;
-    public Crouch(PJController pjController, Animator anim,  StateMachine sm) : base(pjController, anim, sm){
-    }
+    public Crouch(PJController pjController, Animator anim, StateMachine sm, string nombre) :
+        base(pjController, anim, sm, nombre) { }
     public void Enter(){
         this.sm.ChangeAnimation("Crouch");
     }
@@ -19,5 +18,12 @@ public class Crouch : StateClass, IState
     }
     
     public void Exit(){
+    }
+
+
+    //para cuando caes libremente
+    public void Wait(int time)
+    {
+
     }
 }

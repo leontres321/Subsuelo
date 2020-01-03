@@ -6,8 +6,9 @@ public class Jump : StateClass, IState
     private float _jumpForce = 550f;
     private int direction;
 
-    public Jump(PJController pjController, Animator anim,  StateMachine sm) : base(pjController, anim, sm){
-    }
+    public Jump(PJController pjController, Animator anim, StateMachine sm, string nombre) :
+        base(pjController, anim, sm, nombre) { }
+
     public void Enter(){
         pjController.rb.AddForce(new Vector2(0f, _jumpForce));
         this.sm.ChangeAnimation("Jump");

@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class StateMachine
 {
-    private IState currentlyRunningState;
-    private IState previousState;
+    public IState currentlyRunningState;
+    private string previousState;
     private Dictionary<string, IState> states;
     private PJController pjController;
     private Animator anim;
@@ -19,19 +19,20 @@ public class StateMachine
         facingRight = true;
 
         // TODO revisar si es necesario pasar los anim
-        states.Add("Idle", new Idle(pjController, anim, this));
-        states.Add("Jump", new Jump(pjController, anim, this));
-        states.Add("Crouch", new Crouch(pjController, anim, this));
-        states.Add("Move", new Move(pjController, anim, this));
-        states.Add("Attack", new Attack(pjController, anim, this));        
+        states.Add("Idle", new Idle(pjController, anim, this, "Idle"));
+        states.Add("Jump", new Jump(pjController, anim, this, "Jump"));
+        states.Add("Crouch", new Crouch(pjController, anim, this, "Crouch"));
+        states.Add("Move", new Move(pjController, anim, this, "Move"));
+        states.Add("Attack", new Attack(pjController, anim, this, "Attack"));
+        states.Add("Fall", new Fall(pjController, anim, this, "Fall"));
         
         currentlyRunningState = this.states["Idle"];
-        previousState = states["Idle"];
+        previousState = "Idle";
     }
 
     public void ChangeState(string newState){
         currentlyRunningState.Exit();
-        previousState = currentlyRunningState; //ver como usar esto para los estados, un nombre?
+        previousState = currentlyRunningState.GetNombre();
         currentlyRunningState = states[newState];
         currentlyRunningState.Enter();
     }
@@ -41,7 +42,7 @@ public class StateMachine
         para saber que animacion llamo EventHandler() (Funcion de PJController)
     */
     public void ChangeAnimation(string newAnimation){
-        this.animationRunning = newAnimation;
+        this.animationRunning = newAnimation;        
         this.anim.Play(animationRunning);
     }
 

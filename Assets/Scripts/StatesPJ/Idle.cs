@@ -3,8 +3,8 @@ public class Idle : StateClass, IState
 {   
     
 
-    public Idle(PJController pjController, Animator anim,  StateMachine sm) : base(pjController, anim, sm){
-    }
+    public Idle(PJController pjController, Animator anim,  StateMachine sm, string nombre) : 
+        base(pjController, anim, sm, nombre){}
 
     public void Enter(){
         pjController.rb.velocity = new Vector2(0, pjController.rb.velocity.y);
