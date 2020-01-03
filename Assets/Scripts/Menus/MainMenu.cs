@@ -1,10 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject options;
+    [SerializeField]
+    GameObject cargando;
+    [SerializeField]
+    GameObject titulo;
+
+
 
     private OptionMenu optionMenu;
 
@@ -17,13 +24,24 @@ public class MainMenu : MonoBehaviour
         _animaciones = transform.GetComponentsInChildren<Animator>();
         _pos = 0;
         _pos_anterior = 0;
-        _animaciones[_pos].Play("Inicial");
+        try
+        {
+            _animaciones[_pos].Play("Inicial");
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+            Debug.Log("Bug: array de animaciones aparece vacio, mas raro aun esta funcion se ejecuta al ocultar el objeto");
+        }
         optionMenu = options.GetComponent<OptionMenu>();
     }
 
     void Comenzar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);        
+        titulo.SetActive(false);
+        cargando.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameObject.SetActive(false);
     }
 
     void Salir()
@@ -36,6 +54,14 @@ public class MainMenu : MonoBehaviour
         options.SetActive(true);
         optionMenu.Iniciar();
         gameObject.SetActive(false);
+    }
+
+    void RevisarSave()
+    {
+        //Denied solo esta hecho para continuar, en otros lados rompera el orden
+        //play de la misma animacion no la hace otra vez... raro pero funciona asi
+        _animaciones[_pos].Play("Denied");
+        _pos_anterior = _pos;
     }
 
     void Update()
@@ -73,7 +99,7 @@ public class MainMenu : MonoBehaviour
                     Comenzar();
                     break;
                 case 1:
-                    //todo CONTINUAR
+                    RevisarSave();
                     break;
                 case 2:
                     Cambio();
