@@ -4,6 +4,7 @@ public class Fall : StateClass, IState
 {
     int direction;
     readonly float SPEED = 6f;
+    bool cambio;
 
     public Fall(PJController pjController, Animator anim, StateMachine sm, string nombre) :
         base(pjController, anim, sm, nombre){ }
@@ -11,7 +12,9 @@ public class Fall : StateClass, IState
 
     public void Enter()
     {
+        sm.ChangeAnimation("Fall");
         direction = 0;
+        cambio = false;
     }
 
     public void Execute()
@@ -20,7 +23,7 @@ public class Fall : StateClass, IState
         {
             direction = 1;
         }
-        if (Input.GetButton("Left"))
+        else if (Input.GetButton("Left"))
         {
             direction = 2;
         }
@@ -28,6 +31,7 @@ public class Fall : StateClass, IState
         {
             direction = 0;
         }
+        cambio = !pjController.caer;
     }
 
     public void FixedExecute()
@@ -45,7 +49,11 @@ public class Fall : StateClass, IState
             case 0:
                 pjController.rb.velocity = new Vector2(0, pjController.rb.velocity.y);
                 break;
-        } 
+        }
+        if (cambio)
+        {
+            sm.ChangeState("Idle");
+        }
     }
 
 

@@ -8,7 +8,7 @@ public class Idle : StateClass, IState
 
     public void Enter(){
         pjController.rb.velocity = new Vector2(0, pjController.rb.velocity.y);
-        this.sm.ChangeAnimation("Idle");
+        sm.ChangeAnimation("Idle");
     }
 
     public void Execute(){

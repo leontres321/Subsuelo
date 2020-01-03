@@ -10,34 +10,34 @@ public class Move : StateClass, IState
     public Move(PJController pjController, Animator anim, StateMachine sm, string nombre) :
         base(pjController, anim, sm, nombre) { }
     public void Enter(){
-        this.sm.ChangeAnimation("Move");
-        this.direction = 0;
-        this.crouch = 0;
-        this.attack = 0;
-        this.jump = false;     
+        sm.ChangeAnimation("Move");
+        direction = 0;
+        crouch = 0;
+        attack = 0;
+        jump = false;     
     }
 
     public void Execute(){
         if (Input.GetButton("Down")){
-            this.crouch = 1;
+            crouch = 1;
         }
 
         if (Input.GetButton("Attack")){
-            this.attack = 1;
+            attack = 1;
         }
 
         if (Input.GetButton("Jump")){
-            this.jump = true;
+            jump = true;
         }
 
         if (Input.GetButton("Right")){
-            this.direction = 1;
+            direction = 1;
         }
         else if (Input.GetButton("Left")){
-            this.direction = 2;
+            direction = 2;
         }
         else{
-            this.sm.ChangeState("Idle");
+            sm.ChangeState("Idle");
         }
     }
 
@@ -56,15 +56,15 @@ public class Move : StateClass, IState
                 pjController.rb.velocity = Vector2.zero;
                 break;
         }
-        if(this.attack == 1){
-            this.sm.ChangeState("Attack");
+        if(attack == 1){
+            sm.ChangeState("Attack");
             Stop();
         }
-        else if(this.jump){
-            this.sm.ChangeState("Jump");
+        else if(jump){
+            sm.ChangeState("Jump");
         }
-        else if(this.crouch == 1){
-            this.sm.ChangeState("Crouch");
+        else if(crouch == 1){
+            sm.ChangeState("Crouch");
             Stop();
         }
     }

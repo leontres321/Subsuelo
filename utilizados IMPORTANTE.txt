@@ -1,9 +1,9 @@
 Sprites:
-sunny land (Tiles)
+sunny land (Tiles): unity shop
 GothicVania Cementery (PJ): http://pixelgameart.org/web/
 vacaroxa (Tiles): https://vacaroxa.itch.io/
 
 
 
-Musica:
+Sound:
 toiletrolltube, inertia-in-a-mist: https://freesound.org/people/toiletrolltube/sounds/488934/

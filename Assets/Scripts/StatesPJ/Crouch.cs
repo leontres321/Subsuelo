@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 public class Crouch : StateClass, IState
 {
+
     public Crouch(PJController pjController, Animator anim, StateMachine sm, string nombre) :
         base(pjController, anim, sm, nombre) { }
     public void Enter(){
-        this.sm.ChangeAnimation("Crouch");
+        sm.ChangeAnimation("Crouch");
     }
 
     public void Execute(){

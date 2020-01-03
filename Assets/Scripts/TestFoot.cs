@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TestFoot : MonoBehaviour
 {
@@ -10,7 +8,8 @@ public class TestFoot : MonoBehaviour
     {
         if (collision.CompareTag("Floor"))
         {
-            PJ.end_jump = true;            
+            PJ.end_jump = true;
+            PJ.caer = false;
         }
     }
 

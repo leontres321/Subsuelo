@@ -5,7 +5,7 @@ public class StateMachine
 {
     public IState currentlyRunningState;
     private string previousState;
-    private Dictionary<string, IState> states;
+    public Dictionary<string, IState> states;
     private PJController pjController;
     private Animator anim;
     public bool facingRight;
@@ -13,7 +13,7 @@ public class StateMachine
     public string animationRunning;
 
     public StateMachine(PJController pjController, Animator anim){
-        this.states = new Dictionary<string, IState>();
+        states = new Dictionary<string, IState>();
         this.pjController = pjController;
         this.anim = anim;
         facingRight = true;

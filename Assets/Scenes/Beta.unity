@@ -617,6 +617,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.9625
       objectReference: {fileID: 0}
+    - target: {fileID: 598078762050085387, guid: 0eedda1e98b02a0449e2258b0ccd2962,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eedda1e98b02a0449e2258b0ccd2962, type: 3}
 --- !u!1 &188731377
@@ -2949,7 +2954,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &674158184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4223,7 +4228,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.41390795, y: -0.18965803}
+  m_Offset: {x: 0.42299083, y: -0.18965803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4234,7 +4239,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19249797, y: 0.087705284}
+  m_Size: {x: 0.21066374, y: 0.087705284}
   m_EdgeRadius: 0
 --- !u!61 &1128541920
 BoxCollider2D:
@@ -25135,6 +25140,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.81755745, y: 0.07921517}
   m_EdgeRadius: 0
+--- !u!68 &1857689965
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857689961}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.4981005, y: -0.06209186}
+  - {x: -0.21257511, y: -0.32313326}
 --- !u!1001 &1873228641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25493,6 +25516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PJ
       objectReference: {fileID: 0}
+    - target: {fileID: 6061717049847759710, guid: c1766fa992df65b45a16db73372badb7,
+        type: 3}
+      propertyPath: tres_vacio
+      value: 
+      objectReference: {fileID: 1269712209}
     - target: {fileID: 4017117482966149530, guid: c1766fa992df65b45a16db73372badb7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25553,11 +25581,6 @@ PrefabInstance:
       propertyPath: PJ
       value: 
       objectReference: {fileID: 808760256}
-    - target: {fileID: 6061717049847759710, guid: c1766fa992df65b45a16db73372badb7,
-        type: 3}
-      propertyPath: tres_vacio
-      value: 
-      objectReference: {fileID: 1269712209}
     m_RemovedComponents:
     - {fileID: 3165958883746781579, guid: c1766fa992df65b45a16db73372badb7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c1766fa992df65b45a16db73372badb7, type: 3}
