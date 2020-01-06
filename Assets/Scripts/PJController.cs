@@ -27,6 +27,9 @@ public class PJController : MonoBehaviour
     float _timer;
     int _tiempo_necesario;
 
+    public float time_falling;
+    readonly float TIME_FALLING = 0.1f;
+
     void Start(){
         end_jump = false;
         caer = false;
@@ -37,6 +40,7 @@ public class PJController : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
         rb = GetComponent<Rigidbody2D>();
         inventario = new Inventory();
+        time_falling = 0f;
     }
 
     void Update(){
@@ -72,10 +76,16 @@ public class PJController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0f);
                 end_jump = false;
             }
-            //TEST
             if (caer && sm.currentlyRunningState.GetNombre() == "Move")
             {
-                sm.ChangeState("Fall");
+
+                //TEST, NO SE REALMENTE SI FUNCIONA BIEN
+                time_falling += Time.deltaTime;
+                if (time_falling >= TIME_FALLING)
+                {
+                    time_falling = 0f;
+                    sm.ChangeState("Fall");
+                }
             }
         }
     }
