@@ -94,7 +94,7 @@ public class PJController : MonoBehaviour
         //Hacer golpe que tira para atras (rigid body?) e invencibilidad
         vida -= dano;
         if (vida <= 0){
-            Destroy(gameObject); //after animation
+            Destroy(gameObject); //after animation, poner tiempo de animacion nomas
         }
         for (int i = 0; i < dano; i++)
         {
@@ -144,7 +144,7 @@ public class PJController : MonoBehaviour
         _tiempo_necesario = time;
     }
 
-    //llama a la funcion hud dependiendo de quien toco
+    //llama a la funcion hurt dependiendo de quien toco
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy_1"))
@@ -158,7 +158,7 @@ public class PJController : MonoBehaviour
 
     }
 
-    //Shake de HUD
+    //Shake de HUD, bailen corazones, BAILEN!
     public IEnumerator Shake(float duration, float magnitude)
     {
         //valores iniciales

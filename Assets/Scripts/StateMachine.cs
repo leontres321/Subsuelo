@@ -42,32 +42,32 @@ public class StateMachine
         para saber que animacion llamo EventHandler() (Funcion de PJController)
     */
     public void ChangeAnimation(string newAnimation){
-        this.animationRunning = newAnimation;        
-        this.anim.Play(animationRunning);
+        animationRunning = newAnimation;        
+        anim.Play(animationRunning);
     }
 
     public void ExecuteStateUpdate(){
-        this.currentlyRunningState.Execute();
+        currentlyRunningState.Execute();
         
     }
 
     public void ExecuteStateFixedUpdate(){
-        this.currentlyRunningState.FixedExecute();
+        currentlyRunningState.FixedExecute();
         //Con este play de animacion se arregla el drama de derrapar
-        this.anim.Play(animationRunning);
+        anim.Play(animationRunning);
     }
 
     /*
         Cambia de direccion todo, pero solo a la direccion contraria
     */
     public void FlipX(string direction){
-        if (this.facingRight == false && direction == "Right"){
-            this.pjController.transform.localScale = new Vector3 (this.pjController.transform.localScale.x * -1, this.pjController.transform.localScale.y);
-            this.facingRight = true;
+        if (facingRight == false && direction == "Right"){
+            pjController.transform.localScale = new Vector3 (pjController.transform.localScale.x * -1, pjController.transform.localScale.y);
+            facingRight = true;
         }
-        else if (this.facingRight == true && direction == "Left"){
-            this.pjController.transform.localScale = new Vector3 (this.pjController.transform.localScale.x * -1, this.pjController.transform.localScale.y);
-            this.facingRight = false;
+        else if (facingRight == true && direction == "Left"){
+            pjController.transform.localScale = new Vector3 (pjController.transform.localScale.x * -1, pjController.transform.localScale.y);
+            facingRight = false;
         }
     }
 }

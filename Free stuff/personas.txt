@@ -10,3 +10,4 @@ Tiles     caverns-files
 Tiles     ForgottenDungeon                 Blackwolfdave
 Tiles     CavePlatformer                   Beast
 Tiles     CaveTiles
+enemies   imp-axe-demon                    Sanctumpixel https://sanctumpixel.itch.io/imp-axe-demon-pixel-art-character?fbclid=IwAR2w8komD2l67SNpZ8V9nrzmKI73IvApFekX-NVLyJ2BbLpckJW-A3eDeA4

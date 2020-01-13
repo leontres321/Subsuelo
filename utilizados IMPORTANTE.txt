@@ -7,3 +7,8 @@ vacaroxa (Tiles): https://vacaroxa.itch.io/
 
 Sound:
 toiletrolltube, inertia-in-a-mist: https://freesound.org/people/toiletrolltube/sounds/488934/
+DM-CGS, Casual Game SFX - Sample Pack: http://dustyroom.com/casual-game-sfx-freebie/
+
+
+Other:
+2D pixel perfect camera: https://github.com/Unity-Technologies/2d-pixel-perfect

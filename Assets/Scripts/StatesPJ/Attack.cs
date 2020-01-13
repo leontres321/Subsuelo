@@ -7,7 +7,7 @@ public class Attack : StateClass, IState
         base(pjController, anim, sm, nombre){ }
 
     public void Enter(){
-        this.sm.ChangeAnimation("Attack");        
+        sm.ChangeAnimation("Attack");        
     }
 
     public void Execute(){
@@ -15,9 +15,9 @@ public class Attack : StateClass, IState
         if (endAnimation){
             sm.ChangeState("Idle");
         }
-        this.timer += Time.deltaTime;
-        if (this.timer >= 0.5f){
-            this.endAnimation = true;
+        timer += Time.deltaTime;
+        if (timer >= 0.5f){
+            endAnimation = true;
         }
     }
 
@@ -26,11 +26,11 @@ public class Attack : StateClass, IState
     }
 
     public void Exit(){
-        this.endAnimation = false;
-        this.timer = 0;
+        endAnimation = false;
+        timer = 0;
     }
 
     public void EndAnimation(){
-        this.endAnimation = true;
+        endAnimation = true;
     }
 }
