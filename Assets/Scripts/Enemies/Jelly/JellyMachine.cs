@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 //Me gustó el nombre
 public class JellyMachine : EnemyStateMachine
@@ -8,10 +9,15 @@ public class JellyMachine : EnemyStateMachine
         _me = enemy;
         _anim = animator;
         this.boundary = boundary;
-        
+        rb.freezeRotation = true;
 
         //Creacion del diccionario
+        enemyStates = new Dictionary<string, IEnemyState>();
+
         enemyStates.Add("Idle", new JellyIdle(rb, audios[0], this, "Idle"));
 
+        currentlyRunningState = enemyStates["Idle"];
+        _animationRunning = "Idle";
+        previousState = "Idle";
     }
 }

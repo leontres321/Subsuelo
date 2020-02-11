@@ -7,6 +7,9 @@ public class Move : StateClass, IState
     int attack;
     bool jump;
 
+    float contador;
+    int pisadaNumero;
+
     public Move(PJController pjController, Animator anim, StateMachine sm, string nombre) :
         base(pjController, anim, sm, nombre) { }
     public void Enter(){
@@ -14,10 +17,13 @@ public class Move : StateClass, IState
         direction = 0;
         crouch = 0;
         attack = 0;
-        jump = false;     
+        jump = false;
+        contador = 0;
+        pisadaNumero = 1;
     }
 
     public void Execute(){
+        contador += Time.deltaTime;
         if (Input.GetButton("Down")){
             crouch = 1;
         }
@@ -67,10 +73,18 @@ public class Move : StateClass, IState
             sm.ChangeState("Crouch");
             Stop();
         }
+
+        if (contador >= 0.1)
+        {
+            pjController.MakeSound("pisada_" + ((pisadaNumero % 2) + 1).ToString());
+            pisadaNumero++;
+            contador = 0;
+        }
     }
     
     public void Exit(){
-        
+
+        contador = 0;
     }
 
     public void Stop(){

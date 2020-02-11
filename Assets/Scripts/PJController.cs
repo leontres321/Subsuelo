@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PJController : MonoBehaviour
@@ -30,6 +31,11 @@ public class PJController : MonoBehaviour
     public float time_falling;
     readonly float TIME_FALLING = 0.1f;
 
+    public AudioSource pisada_1;
+    public AudioSource pisada_2;
+
+    Dictionary<string, AudioSource> sonidos;
+
     void Start(){
         end_jump = false;
         caer = false;
@@ -41,6 +47,10 @@ public class PJController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         inventario = new Inventory();
         time_falling = 0f;
+        sonidos = new Dictionary<string, AudioSource>();
+
+        sonidos.Add("pisada_1",pisada_1);
+        sonidos.Add("pisada_2", pisada_2);
     }
 
     void Update(){
@@ -209,5 +219,10 @@ public class PJController : MonoBehaviour
         dos_medio.transform.position = dos_inicial;
         tres.transform.position = tres_inicial;
         tres_medio.transform.position = tres_inicial;
+    }
+
+    public void MakeSound(string sonido)
+    {
+        sonidos[sonido].Play();
     }
 }

@@ -8,12 +8,13 @@ public class JellyIdle : EnemyState, IEnemyState
 
     public void Enter()
     {
-        
+        sm.ChangeAnimation("Idle");
+        Debug.Log("Jalea en Idle");
     }
 
     public void Execute()
     {
-        
+
     }
 
     public void Exit()

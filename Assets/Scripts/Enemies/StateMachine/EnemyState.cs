@@ -2,10 +2,11 @@
 
 public class EnemyState 
 {
-    EnemyStateMachine sm;
     string name;
-    AudioClip sonido;
-    Rigidbody2D rb;
+
+    protected EnemyStateMachine sm;
+    protected AudioClip sonido;
+    protected Rigidbody2D rb;
 
     public EnemyState(Rigidbody2D rb, AudioClip sonido, EnemyStateMachine sm, string name)
     {
