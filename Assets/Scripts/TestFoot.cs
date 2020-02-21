@@ -11,6 +11,7 @@ public class TestFoot : MonoBehaviour
             PJ.end_jump = true;
             PJ.caer = false;
             PJ.time_falling = 0f;
+            PJ.MakeSound("caida");
         }
     }
 

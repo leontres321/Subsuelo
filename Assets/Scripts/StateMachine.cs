@@ -8,6 +8,8 @@ public class StateMachine
     public Dictionary<string, IState> states;
     private PJController pjController;
     private Animator anim;
+
+
     public bool facingRight;
 
     public string animationRunning;
@@ -26,8 +28,9 @@ public class StateMachine
         states.Add("Attack", new Attack(pjController, anim, this, "Attack"));
         states.Add("Fall", new Fall(pjController, anim, this, "Fall"));
         
-        currentlyRunningState = this.states["Idle"];
-        previousState = "Idle";
+        currentlyRunningState = this.states["Fall"];
+        ChangeAnimation("Fall");
+        previousState = "Fall";
     }
 
     public void ChangeState(string newState){
@@ -70,4 +73,6 @@ public class StateMachine
             facingRight = false;
         }
     }
+
+
 }

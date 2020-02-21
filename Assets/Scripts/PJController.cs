@@ -33,12 +33,15 @@ public class PJController : MonoBehaviour
 
     public AudioSource pisada_1;
     public AudioSource pisada_2;
+    public AudioSource caida;
+    public AudioSource espada;
+    public AudioClip espadaVithe;
 
     Dictionary<string, AudioSource> sonidos;
 
     void Start(){
         end_jump = false;
-        caer = false;
+        caer = true;
         _activo = true;
         _timer = 0f;
         vida = 6;
@@ -51,6 +54,8 @@ public class PJController : MonoBehaviour
 
         sonidos.Add("pisada_1",pisada_1);
         sonidos.Add("pisada_2", pisada_2);
+        sonidos.Add("espada", espada);
+        sonidos.Add("caida", caida);
     }
 
     void Update(){
@@ -88,8 +93,6 @@ public class PJController : MonoBehaviour
             }
             if (caer && sm.currentlyRunningState.GetNombre() == "Move")
             {
-
-                //TEST, NO SE REALMENTE SI FUNCIONA BIEN
                 time_falling += Time.deltaTime;
                 if (time_falling >= TIME_FALLING)
                 {
@@ -106,11 +109,8 @@ public class PJController : MonoBehaviour
         if (vida <= 0){
             Destroy(gameObject); //after animation, poner tiempo de animacion nomas
         }
-        for (int i = 0; i < dano; i++)
-        {
-            StartCoroutine(Shake(1, 1.5f));
-            ChangeHearths(vida);
-        }
+        StartCoroutine(Shake(1, 1.5f));
+        ChangeHearths(vida);
     }
 
     //Cambia los corazones del HUD
@@ -159,9 +159,10 @@ public class PJController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy_1"))
         {
+            Debug.Log("atacado_1");
             Hurt(1);
         }
-        if (collision.gameObject.CompareTag("Enemy_1"))
+        if (collision.gameObject.CompareTag("Enemy_2"))
         {
             Hurt(2);
         }
@@ -225,4 +226,11 @@ public class PJController : MonoBehaviour
     {
         sonidos[sonido].Play();
     }
+
+    public void StopSound(string sonido)
+    {
+        sonidos[sonido].Stop();
+    }
+
+
 }

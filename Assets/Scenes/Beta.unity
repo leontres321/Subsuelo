@@ -1239,18 +1239,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.8786291, y: -0.5987639}
-      - {x: 0.7759895, y: -0.5017392}
+    - - {x: 0.88649535, y: -0.582106}
+      - {x: 0.77598953, y: -0.4917445}
       - {x: 0.7347896, y: -0.49851295}
       - {x: 0.66741884, y: -0.4016738}
       - {x: 0.61125576, y: -0.39632198}
-      - {x: 0.5578233, y: -0.30360764}
-      - {x: -0.4445464, y: -0.3017517}
+      - {x: 0.5560852, y: -0.2977184}
+      - {x: -0.4433877, y: -0.29782557}
       - {x: -0.44517246, y: -0.39897352}
       - {x: 0.50463486, y: -0.39578232}
       - {x: 0.8329628, y: -0.6977344}
       - {x: 1.4439632, y: -0.6984754}
-      - {x: 1.4446465, y: -0.6037745}
+      - {x: 1.4446466, y: -0.5804534}
 --- !u!1001 &279418903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3616,7 +3616,7 @@ PrefabInstance:
     - target: {fileID: 52473864143936311, guid: 3fa04445fb5145647a8faf686a762dca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.1201959
+      value: 6.33
       objectReference: {fileID: 0}
     - target: {fileID: 52473864143936311, guid: 3fa04445fb5145647a8faf686a762dca,
         type: 3}
@@ -3673,6 +3673,11 @@ PrefabInstance:
       propertyPath: boundaryManager
       value: 
       objectReference: {fileID: 1382473845}
+    - target: {fileID: 3147102566178277150, guid: 3fa04445fb5145647a8faf686a762dca,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fa04445fb5145647a8faf686a762dca, type: 3}
 --- !u!4 &908444807 stripped
@@ -32978,12 +32983,12 @@ PrefabInstance:
     - target: {fileID: 4017117482966149530, guid: c1766fa992df65b45a16db73372badb7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.685025
+      value: -6.55
       objectReference: {fileID: 0}
     - target: {fileID: 4017117482966149530, guid: c1766fa992df65b45a16db73372badb7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9614449
+      value: 4.31
       objectReference: {fileID: 0}
     - target: {fileID: 4017117482966149530, guid: c1766fa992df65b45a16db73372badb7,
         type: 3}
@@ -41174,7 +41179,7 @@ PrefabInstance:
     - target: {fileID: 7286385586542820900, guid: 0eedda1e98b02a0449e2258b0ccd2962,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2541826
+      value: 2.94
       objectReference: {fileID: 0}
     - target: {fileID: 7286385586542820900, guid: 0eedda1e98b02a0449e2258b0ccd2962,
         type: 3}
@@ -41229,7 +41234,7 @@ PrefabInstance:
     - target: {fileID: 7286385586542820900, guid: 0eedda1e98b02a0449e2258b0ccd2962,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 10.625
       objectReference: {fileID: 0}
     - target: {fileID: 7286385586745139565, guid: 0eedda1e98b02a0449e2258b0ccd2962,
         type: 3}
@@ -41239,12 +41244,17 @@ PrefabInstance:
     - target: {fileID: 598078762050085387, guid: 0eedda1e98b02a0449e2258b0ccd2962,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7286385586542820903, guid: 0eedda1e98b02a0449e2258b0ccd2962,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539302497048644677, guid: 0eedda1e98b02a0449e2258b0ccd2962,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.044
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eedda1e98b02a0449e2258b0ccd2962, type: 3}

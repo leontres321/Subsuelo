@@ -59,6 +59,6 @@ public class Fall : StateClass, IState
 
     public void Exit()
     {
-        
+        pjController.MakeSound("caida");
     }
 }

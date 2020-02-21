@@ -45,6 +45,12 @@ public class Move : StateClass, IState
         else{
             sm.ChangeState("Idle");
         }
+        /*if (contador >= 0.1)
+        {
+            pjController.MakeSound("pisada_" + ((pisadaNumero % 2) + 1).ToString());
+            pisadaNumero++;
+            contador = 0;
+        }*/
     }
 
     public void FixedExecute(){
@@ -73,18 +79,12 @@ public class Move : StateClass, IState
             sm.ChangeState("Crouch");
             Stop();
         }
-
-        if (contador >= 0.1)
-        {
-            pjController.MakeSound("pisada_" + ((pisadaNumero % 2) + 1).ToString());
-            pisadaNumero++;
-            contador = 0;
-        }
     }
     
     public void Exit(){
 
         contador = 0;
+        //pjController.StopSound("pisada_" + ((pisadaNumero % 2) + 1).ToString());
     }
 
     public void Stop(){

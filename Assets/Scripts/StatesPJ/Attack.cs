@@ -7,7 +7,8 @@ public class Attack : StateClass, IState
         base(pjController, anim, sm, nombre){ }
 
     public void Enter(){
-        sm.ChangeAnimation("Attack");        
+        sm.ChangeAnimation("Attack");
+        pjController.MakeSound("espada");
     }
 
     public void Execute(){

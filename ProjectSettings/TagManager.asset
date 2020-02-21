@@ -10,6 +10,8 @@ TagManager:
   - Enemy_1
   - PJ
   - Foot
+  - Enemy_2
+  - Wall
   layers:
   - Default
   - TransparentFX

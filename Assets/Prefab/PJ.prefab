@@ -319,7 +319,6 @@ GameObject:
   - component: {fileID: 4017117482966149533}
   - component: {fileID: 6061717049847759710}
   - component: {fileID: 429718912802858315}
-  - component: {fileID: 4095681806039527526}
   m_Layer: 9
   m_Name: PJ
   m_TagString: PJ
@@ -488,7 +487,10 @@ MonoBehaviour:
   tres_vacio: {fileID: 7513507535594926275}
   time_falling: 0
   pisada_1: {fileID: 429718912802858315}
-  pisada_2: {fileID: 4095681806039527526}
+  pisada_2: {fileID: 0}
+  caida: {fileID: 2949074123782287623}
+  espada: {fileID: 2893810267402280290}
+  espadaVithe: {fileID: 8300000, guid: 54a203c152f5ace408076396fc60052b, type: 3}
 --- !u!82 &429718912802858315
 AudioSource:
   m_ObjectHideFlags: 0
@@ -500,103 +502,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: feeeee4e842243d4b9b63f2a697c9830, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!82 &4095681806039527526
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017117482966149528}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0d581d2eb2d318449cf3730ecfcca42, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -691,6 +597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4017117483488075263}
   - component: {fileID: 4017117483488075262}
+  - component: {fileID: 7634038307126565526}
   m_Layer: 9
   m_Name: Attack hit box
   m_TagString: Sword
@@ -738,6 +645,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.30229366, y: 0.13180965}
   m_EdgeRadius: 0
+--- !u!114 &7634038307126565526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017117483488075260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f256a24ef09b7304ba18e91b4b7a09f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4525625990152251050
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +739,7 @@ GameObject:
   - component: {fileID: 2893810267402280290}
   m_Layer: 9
   m_Name: Espada
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
