@@ -12,10 +12,14 @@ public class Attack : StateClass, IState
     }
 
     public void Execute(){
-        //Cambiar de estado cuando esto sea true
-        if (endAnimation){
+        if ((sm.previousState == "Fall" || sm.previousState == "Jump") && endAnimation)
+        {
+            sm.ChangeState("Fall");
+        }
+        else if (endAnimation){
             sm.ChangeState("Idle");
         }
+        //Duracion de animacion
         timer += Time.deltaTime;
         if (timer >= 0.5f){
             endAnimation = true;

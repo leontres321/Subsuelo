@@ -12,6 +12,8 @@ TagManager:
   - Foot
   - Enemy_2
   - Wall
+  - Pincho
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

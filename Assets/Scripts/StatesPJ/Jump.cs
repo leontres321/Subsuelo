@@ -2,31 +2,41 @@
 
 public class Jump : StateClass, IState
 {
-    private readonly float SPEED = 6f;
-    private float _jumpForce = 550f;
-    private int direction;
+    readonly float SPEED = 6f;
+    readonly float _multiplicadorBajada = 0.05f; //todo: revisar
+    bool _soltasteElBotonVithe;
+    float _jumpForce = 550f;
+    int direction;
+
+
 
     public Jump(PJController pjController, Animator anim, StateMachine sm, string nombre) :
         base(pjController, anim, sm, nombre) { }
 
     public void Enter(){
         pjController.rb.AddForce(new Vector2(0f, _jumpForce));
-        this.sm.ChangeAnimation("Jump");
-        this.direction = 0;
+        sm.ChangeAnimation("Jump");
+        direction = 0;
+        _soltasteElBotonVithe = false;
     }
 
+    // bienvenido al infierno
     public void Execute(){
         if (Input.GetButton("Right")){
-            this.direction = 1;
+            direction = 1;
         }
         else if(Input.GetButton("Left")){
-            this.direction = 2;
+            direction = 2;
         }
         if (Input.GetButtonUp("Left") || Input.GetButtonUp("Right")){
-            this.direction = 0;
+            direction = 0;
         }
         if (Input.GetButton("Attack")){
-            this.sm.ChangeState("Attack");
+            sm.ChangeState("Attack");
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            _soltasteElBotonVithe = true;
         }
     }
 
@@ -45,9 +55,12 @@ public class Jump : StateClass, IState
                 pjController.rb.velocity = new Vector2(0, pjController.rb.velocity.y);
                 break;
         }
+        if (_soltasteElBotonVithe)
+        {
+            pjController.rb.velocity += Vector2.up * Physics2D.gravity * _multiplicadorBajada;
+        }
     }
     
     public void Exit(){
-
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StateMachine
 {
     public IState currentlyRunningState;
-    private string previousState;
+    public string previousState;
     public Dictionary<string, IState> states;
     private PJController pjController;
     private Animator anim;
@@ -20,7 +21,6 @@ public class StateMachine
         this.anim = anim;
         facingRight = true;
 
-        // TODO revisar si es necesario pasar los anim
         states.Add("Idle", new Idle(pjController, anim, this, "Idle"));
         states.Add("Jump", new Jump(pjController, anim, this, "Jump"));
         states.Add("Crouch", new Crouch(pjController, anim, this, "Crouch"));
@@ -31,6 +31,12 @@ public class StateMachine
         currentlyRunningState = this.states["Fall"];
         ChangeAnimation("Fall");
         previousState = "Fall";
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            ChangeAnimation("Idle");
+            previousState = "Idle";
+            FlipX("Left");
+        }
     }
 
     public void ChangeState(string newState){
