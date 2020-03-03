@@ -7,13 +7,12 @@ TagManager:
   - Floor
   - Boundary
   - Sword
-  - Enemy_1
   - PJ
   - Foot
-  - Enemy_2
   - Wall
   - Pincho
   - CheckPoint
+  - Jarro
   layers:
   - Default
   - TransparentFX

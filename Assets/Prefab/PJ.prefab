@@ -485,7 +485,6 @@ MonoBehaviour:
   uno_vacio: {fileID: 911289723025982773}
   dos_vacio: {fileID: 5608985460825911919}
   tres_vacio: {fileID: 7513507535594926275}
-  _pies: {fileID: 5281464547495757605}
   time_falling: 0
   _yaColisiono: 0
   cameraShake: {fileID: 0}
@@ -660,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f256a24ef09b7304ba18e91b4b7a09f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PJ: {fileID: 6061717049847759710}
 --- !u!1 &4525625990152251050
 GameObject:
   m_ObjectHideFlags: 0

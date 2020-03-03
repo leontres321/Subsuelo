@@ -2,12 +2,15 @@
 
 public class Espada : MonoBehaviour
 {
+    public PJController PJ;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy_1"))
-        {
-            var clase = collision.gameObject.GetComponent<JellyClass>();
-            clase.sm.pushBack();
-        }
+
+    }
+
+    public void Heal(int vida)
+    {
+        PJ.Heal(vida);
     }
 }

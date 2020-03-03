@@ -215,21 +215,6 @@ public class PJController : MonoBehaviour
         _tiempo_necesario = time;
     }
 
-    //llama a la funcion hurt dependiendo de quien toco
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy_1"))
-        {
-            Debug.Log("atacado_1");
-            Hurt(1);
-        }
-        if (collision.gameObject.CompareTag("Enemy_2"))
-        {
-            Hurt(2);
-        }
-
-    }
-
     //Shake de HUD, bailen corazones, BAILEN!
     public IEnumerator Shake(float duration, float magnitude)
     {
@@ -325,6 +310,7 @@ public class PJController : MonoBehaviour
                 transform.position = _lastCheckPoint;
                 sm.ChangeState("Fall"); //No funciona
                 _yaColisiono = true;
+                collision.gameObject.GetComponent<PinchosClass>().ChangeSprite();
             }
         }
         else if (collision.CompareTag("CheckPoint"))
