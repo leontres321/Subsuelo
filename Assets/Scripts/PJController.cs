@@ -31,7 +31,7 @@ public class PJController : MonoBehaviour
     int _tiempo_necesario;
 
     public float time_falling;
-    readonly float TIME_FALLING = 0.1f;
+    readonly float TIME_FALLING = 0.05f;
 
     public bool _yaColisiono;
 
@@ -121,6 +121,7 @@ public class PJController : MonoBehaviour
             sm.ExecuteStateFixedUpdate();
             //no deja que el personaje rote cuando cae o cuando se desliza
             transform.rotation = Quaternion.identity;
+            //BUG, sucede cuando una se acerca a un borde e inmediatamente suelta el movimiento, haciendo que el pj caiga en estado idle
             if (caer && sm.currentlyRunningState.GetNombre() == "Move")
             {
                 time_falling += Time.deltaTime;
