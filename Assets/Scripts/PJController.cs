@@ -14,7 +14,8 @@ public class PJController : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    //corazones van de izq a derecha
+
+    #region corazones van de izq a derecha
     public GameObject uno;
     public GameObject dos;
     public GameObject tres;
@@ -24,6 +25,9 @@ public class PJController : MonoBehaviour
     public GameObject uno_vacio;
     public GameObject dos_vacio;
     public GameObject tres_vacio;
+    #endregion
+
+    public bool _puedeSonarPiso;
 
     static int vida;
     bool _activo;
@@ -138,6 +142,9 @@ public class PJController : MonoBehaviour
         //Hacer golpe que tira para atras (rigid body?) e invencibilidad
         vida -= dano;
 
+        //Evento de regreso de enemigos
+        BolsaDeFantasmas.singleton.RegresarFantasmas();
+        transform.position = _lastCheckPoint;
         if (vida <= 0){
             Destroy(gameObject, 2f); //after animation, poner tiempo de animacion nomas
             SceneManager.LoadScene("Main");
@@ -308,7 +315,6 @@ public class PJController : MonoBehaviour
             {
                 //volver al checkpoint
                 Hurt(1);
-                transform.position = _lastCheckPoint;
                 sm.ChangeState("Fall"); //No funciona
                 _yaColisiono = true;
                 collision.gameObject.GetComponent<PinchosClass>().ChangeSprite();
@@ -318,6 +324,33 @@ public class PJController : MonoBehaviour
         {
             _lastCheckPoint = collision.gameObject.transform.position;  //Posicion es el centro del collision
         }
+    }
+
+
+    /// <summary>
+    /// MMMMMM patas...
+    /// </summary>
+    /// <param name="duration"></param>
+    /// <returns></returns>
+    private IEnumerator NoPiso(float duration)
+    {
+        float elapsed = 0f;
+        
+        while (elapsed < duration)
+        {
+            _puedeSonarPiso = false;
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        _puedeSonarPiso = true;
+    }
+
+    public void NoPisoHelper(float tiempo)
+    {
+        StartCoroutine(NoPiso(tiempo));
     }
 
 }

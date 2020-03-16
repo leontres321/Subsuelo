@@ -22,7 +22,6 @@ public class JellyMachine : EnemyStateMachine
         enemyStates = new Dictionary<string, IEnemyState>();
 
 
-        //todo: generar todos los estados
         enemyStates.Add("Idle", new JellyIdle(rb, this, "Idle"));
         enemyStates.Add("Hurt", new JellyHurt(rb, this, "Hurt"));
         enemyStates.Add("Move", new JellyMove(rb, this, "Move"));

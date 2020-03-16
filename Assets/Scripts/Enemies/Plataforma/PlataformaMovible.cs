@@ -17,6 +17,7 @@ public class PlataformaMovible : MonoBehaviour
         timeDelay = 0f;
         rb = GetComponent<Rigidbody2D>();
         direccion = subiendo ? 1 : -1;
+
     }
 
     //Esto creo que es lo único de verdad bonito que tiene el juego y por el solo hecho de que 

@@ -485,6 +485,7 @@ MonoBehaviour:
   uno_vacio: {fileID: 911289723025982773}
   dos_vacio: {fileID: 5608985460825911919}
   tres_vacio: {fileID: 7513507535594926275}
+  mmmPatas: {fileID: 5281464547495757605}
   time_falling: 0
   _yaColisiono: 0
   cameraShake: {fileID: 0}
