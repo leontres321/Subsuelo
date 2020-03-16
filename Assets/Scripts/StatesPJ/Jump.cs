@@ -3,7 +3,7 @@
 public class Jump : StateClass, IState
 {
     readonly float SPEED = 6f;
-    readonly float _multiplicadorBajada = 0.05f; //todo: revisar
+    readonly float _multiplicadorBajada = 0.05f; 
     bool _soltasteElBotonVithe;
     float _jumpForce = 550f;
     int direction;

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615358384986090501}
   - component: {fileID: 615358384986090498}
+  - component: {fileID: 4345725233366398358}
   m_Layer: 0
   m_Name: Lamp_Red
   m_TagString: Untagged
@@ -70,3 +71,18 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &4345725233366398358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615358384986090500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8158b8e5b15e84f8f16c1c65c7c36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light2D: {fileID: 615358384986090498}
+  delta: 0.8
+  cambio: 0.03

@@ -10,7 +10,8 @@ public class MainMenu : MonoBehaviour
     GameObject cargando;
     [SerializeField]
     GameObject titulo;
-
+    [SerializeField]
+    GameObject comoJugar;
 
 
     private OptionMenu optionMenu;
@@ -56,12 +57,10 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void RevisarSave()
+    void ComoJugar()
     {
-        //Denied solo esta hecho para continuar, en otros lados rompera el orden
-        //play de la misma animacion no la hace otra vez... raro pero funciona asi
-        _animaciones[_pos].Play("Denied");
-        _pos_anterior = _pos;
+        comoJugar.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -99,7 +98,7 @@ public class MainMenu : MonoBehaviour
                     Comenzar();
                     break;
                 case 1:
-                    RevisarSave();
+                    ComoJugar();
                     break;
                 case 2:
                     Cambio();

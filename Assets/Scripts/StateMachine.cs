@@ -35,6 +35,9 @@ public class StateMachine
         {
             ChangeAnimation("Idle");
             previousState = "Idle";
+            currentlyRunningState = this.states["Idle"];
+            //Corrutina contadora para desactivar pies
+            pjController.NoPisoHelper(1.5f);
             FlipX("Left");
         }
     }
