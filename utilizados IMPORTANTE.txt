@@ -1,9 +1,16 @@
 Sprites:
 sunny land (Tiles): unity shop
+
 GothicVania Cementery (PJ): http://pixelgameart.org/web/
+https://ansimuz.itch.io/gothicvania-patreon-collection
+
+ansimuz(Tiles):https://ansimuz.itch.io/warped-caves
+
 vacaroxa (Tiles): https://vacaroxa.itch.io/
+https://bakudas.itch.io/generic-dungeon-pack
+https://itch.io/c/648539/legacy-adventure-assets-pack
 
-
+szadiart(Tiles): https://szadiart.itch.io/pixel-fantasy-deep-forest
 
 Sound:
 toiletrolltube, inertia-in-a-mist: https://freesound.org/people/toiletrolltube/sounds/488934/
