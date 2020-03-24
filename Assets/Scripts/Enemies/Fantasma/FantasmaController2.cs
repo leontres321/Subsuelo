@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class FantasmaController : MonoBehaviour
+public class FantasmaController2 : MonoBehaviour
 {
     public Transform pj;
     public GameObject boundary;
-    public float Speed = 5f;
+    public float Speed = 0.06f;
 
     Vector2 direccion;
     Rigidbody2D rb;
@@ -13,7 +13,6 @@ public class FantasmaController : MonoBehaviour
     BoxCollider2D colisionadorPibe;
     Vector2 posInicial;
 
-    bool _activo;
     float contador;
     float cambioAnimación;
 
@@ -25,38 +24,27 @@ public class FantasmaController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         colisionadorPibe = GetComponent<BoxCollider2D>();
-        _activo = false;
         animator.Play("Apareciendo");
         posInicial = transform.position;
         contador = 0f;
-        BolsaDeFantasmas.singleton.RegresarPosicionInicial += VolverInicio;
+        Event.singleton.RegresarPosicionInicial += VolverInicio;
     }
 
     void Update()
     {
-        // if active
-        _activo = boundary.activeSelf ? true : false;
-
-        if (_activo)
+        direccion = pj.position - transform.position;
+        direccion.Normalize();
+        FlipX();
+        contador += Time.deltaTime;
+        if (contador >= cambioAnimación)
         {
-            direccion = pj.position - transform.position;
-            direccion.Normalize();
-            FlipX();
-            contador += Time.deltaTime;
-            if (contador >= cambioAnimación)
-            {
-                animator.Play("ShoroPulento");
-            }
+            animator.Play("ShoroPulento");
         }
-        
     }
 
     private void FixedUpdate()
     {
-        if (_activo)
-        {
-            rb.MovePosition((Vector2)transform.position + (direccion * Speed)); 
-        }
+        rb.MovePosition((Vector2)transform.position + (direccion * Speed)); 
     }
 
     private void FlipX()
@@ -69,23 +57,21 @@ public class FantasmaController : MonoBehaviour
         if (collision.CompareTag("PJ"))
         {
             pj.gameObject.GetComponent<PJController>().Hurt(1);
+            Event.singleton.RegresarFantasmas();
         }
         if (collision.CompareTag("Sword"))
         {
-            GetComponent<BoxCollider2D>().enabled = false;
             animator.Play("HaciendoLaMuricion");
-            BolsaDeFantasmas.singleton.RegresarPosicionInicial -= VolverInicio;
-           _activo = false;
-            Destroy(gameObject, 0.5f);
+            gameObject.SetActive(false);
         }
     }
 
     private void VolverInicio()
     {
         transform.position = posInicial;
-        _activo = false;
         animator.Play("Normal");
         contador = 0f;
+        gameObject.SetActive(false);
     }
 
     public void cambioAnimacionEvento()

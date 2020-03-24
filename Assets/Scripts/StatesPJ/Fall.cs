@@ -32,6 +32,10 @@ public class Fall : StateClass, IState
             direction = 0;
         }
         cambio = !pjController.caer;
+        if (Input.GetButton("Attack"))
+        {
+            direction = 4;
+        }
     }
 
     public void FixedExecute()
@@ -49,15 +53,24 @@ public class Fall : StateClass, IState
             case 0:
                 pjController.rb.velocity = new Vector2(0, pjController.rb.velocity.y);
                 break;
+            case 4:
+                sm.ChangeState("Attack");
+                break;
         }
         if (cambio)
         {
             sm.ChangeState("Idle");
+            hacerRuido();
         }
     }
 
 
     public void Exit()
+    {
+        
+    }
+
+    public void hacerRuido()
     {
         pjController.MakeSound("caida");
     }
